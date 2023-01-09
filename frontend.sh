@@ -17,6 +17,7 @@ else
   echo FAILURE
 f1
 
+
 echo -e "\e[35m Download Frontend Content\e[0m"
 curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.zip &>>${LOG}
 if [ $? -eq 0 ]; then
