@@ -28,5 +28,5 @@ systemctl enable nginx &>>${LOG}
 echo $?
 
 echo -e "\e[35m Start Ngnix\e[0m"
-systemctl Start nginx &>>${LOG}
+systemctl restart nginx &>>${LOG}
 echo $?
