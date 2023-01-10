@@ -43,7 +43,6 @@ status_check
 
 print_head "Extracting App Content"
 cd /app
-
 unzip /tmp/catalogue.zip &>>${LOG}
 status_check
 
@@ -78,6 +77,5 @@ status_check
 
 print_head "Load Schema"
 mongo --host mongodb-dev.devopsk24.online </app/schema/${component}.js &>>${LOG}
-status_check
- 
+status_check 
 }
