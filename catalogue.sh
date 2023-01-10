@@ -5,7 +5,7 @@ curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>${LOG}
 status_check
 
 print_head "Install NodeJS"
-yum install nodejs -y&>>${LOG}
+yum install nodejs -y &>>${LOG}
 status_check
 
 print_head "Add Applications User"
