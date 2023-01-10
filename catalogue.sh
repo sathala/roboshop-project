@@ -63,8 +63,3 @@ status_check
 print_head "Load Schema"
 mongo --host mongodb-dev.devopsk24.online </app/schema/catalogue.js &>>${LOG}
 status_check
-
-
-
-
-
