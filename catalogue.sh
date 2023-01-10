@@ -12,7 +12,7 @@ print_head "Add Application User"
 id roboshop &>>${LOG}
 if [ $? -ne 0 ]; then
   useradd roboshop &>>${LOG}
-f1
+fi
 status_check
 
 mkdir -p /app &>>${LOG}
