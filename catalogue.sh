@@ -44,7 +44,7 @@ else
   echo FAILURE
 fi
 
-echo -e "\e[Extracting App Content\e[0m"
+echo -e "\e[35m Extracting App Content\e[0m"
 cd /app 
 unzip /tmp/catalogue.zip &>>${LOG}
 if [ $? -eq 0 ]; then
