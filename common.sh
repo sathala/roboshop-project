@@ -67,15 +67,17 @@ print_head "Start ${component} service"
 systemctl start ${component} &>>${LOG}
 status_check
 
-print_head "Configuring Mongo Repo"
-cp ${script_location}/files/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>${LOG}
-status_check
+if [ ${schema_load} == "true"]; then
+  print_head "Configuring Mongo Repo"
+  cp ${script_location}/files/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>${LOG}
+  status_check
 
-print_head "Install Mongo Client"
-yum install mongodb-org-shell -y &>>${LOG}
-status_check
+  print_head "Install Mongo Client"
+  yum install mongodb-org-shell -y &>>${LOG}
+  status_check
 
-print_head "Load Schema"
-mongo --host mongodb-dev.devopsk24.online </app/schema/${component}.js &>>${LOG}
-status_check 
+  print_head "Load Schema"
+  mongo --host mongodb-dev.devopsk24.online </app/schema/${component}.js &>>${LOG}
+  status_check
+fi 
 }
