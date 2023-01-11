@@ -43,7 +43,7 @@ status_check
 
 print_head "Extracting App Content"
 cd /app
-unzip /tmp/catalogue.zip &>>${LOG}
+unzip /tmp/${component}.zip &>>${LOG}
 status_check
 
 print_head "Installing NodeJS Dependencies"
