@@ -1,6 +1,6 @@
 source common.sh
 
-component=Catalogue
+component=catalogue
 schema_load=true
 NODEJS
 
