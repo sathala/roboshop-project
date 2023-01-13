@@ -47,7 +47,7 @@ unzip /tmp/${component}.zip &>>${LOG}
 status_check
 
 print_head "Installing NodeJS Dependencies"
-cd /app  &>>${LOG}
+cd /app &>>${LOG}
 npm install &>>${LOG}
 status_check
 
