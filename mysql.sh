@@ -3,7 +3,7 @@ source common.sh
 if [ -z "${root_mysql_password}" ]; them
   echo "Variabel root_mysql_password is missing"
   exit
-fi  
+fi
 
 
 print_head "Disable MySQL Default Module"
