@@ -30,3 +30,5 @@ print_head "Reset Default Database Password"
 mysql_secure_installation --set-root-pass ${root_mysql_password} &>>${LOG}
 status_check
 
+
+
