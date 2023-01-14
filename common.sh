@@ -50,11 +50,11 @@ SYSTEMD_SETUP() {
   systemctl daemon-reload &>>${LOG}
   status_check
 
-  print_head "Enable ${component} service "
+  print_head "Enable ${component} service"
   systemctl enable ${component} &>>${LOG}
   status_check
 
-  print_head "Start ${component} service "
+  print_head "Start ${component} service"
   systemctl start ${component} &>>${LOG}
   status_check
 }
@@ -63,7 +63,7 @@ LOAD_SCHEMA() {
   if [ ${schema_load} == "true" ]; then
 
     if [ ${schema_type} == "mongo" ]; then
-      print_head "Configuring Mongo Repo "
+      print_head "Configuring Mongo Repo"
       cp ${script_location}/files/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>${LOG}
       status_check
 
