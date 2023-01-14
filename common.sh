@@ -7,7 +7,7 @@ status_check() {
   else
     echo -e "\e[1;31mFAILURE\e[0m"
     echo "Refer Log file for more information, LOG - ${LOG}"
-    exit 1
+    exit 
   fi
 }
 
@@ -26,10 +26,10 @@ NODEJS() {
 
   print_head "Add Application User"
   id roboshop &>>${LOG}
-if [ $? -ne 0 ]; then
+  if [ $? -ne 0 ]; then
   useradd roboshop &>>${LOG}
-fi
- status_check
+  fi
+  status_check
 
   mkdir -p /app &>>${LOG}
 
@@ -67,17 +67,17 @@ fi
   systemctl start ${component} &>>${LOG}
   status_check
 
-if [ ${schema_load} == "true" ]; then
-  print_head "Configuring Mongo Repo "
-  cp ${script_location}/files/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>${LOG}
-  status_check
+  if [ ${schema_load} == "true" ]; then
+    print_head "Configuring Mongo Repo "
+    cp ${script_location}/files/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>${LOG}
+    status_check
 
-  print_head "Install Mongo Client"
-  yum install mongodb-org-shell -y &>>${LOG}
-  status_check
+    print_head "Install Mongo Client"
+    yum install mongodb-org-shell -y &>>${LOG}
+    status_check
 
-  print_head "Load Schema"
-  mongo --host mongodb-dev.devopsk24.online </app/schema/${component}.js &>>${LOG}
-  status_check
-fi
+    print_head "Load Schema"
+    mongo --host mongodb-dev.devopsk24.online </app/schema/${component}.js &>>${LOG}
+    status_check
+  fi
 }
