@@ -83,7 +83,7 @@ LOAD_SCHEMA() {
       status_check
 
       print_head "Load Schema"
-      mysql -h mysql-dev.devopsk24.online -uroot -p${root_mysql_password} < /app/schema/shipping.mysql &>>${LOG}
+      mysql -h mysql-dev.devopsk24.online -uroot -p${root_mysql_password} < /app/schema/shipping.sql &>>${LOG}
       status_check
     fi
 
