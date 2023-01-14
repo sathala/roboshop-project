@@ -117,18 +117,18 @@ MAVEN() {
   yum install maven -y &>>${LOG}
   status_check
 
-   APP_PREREQ
+  APP_PREREQ
 
-   print_head "Build a package"
-   mvn clean package -y &>>${LOG}
-   status_check
+  print_head "Build a package"
+  mvn clean package -y &>>${LOG}
+  status_check
 
-   print_head "Copy App file to"
-   mv target/${component}-1.0.jar ${component}.jar
-   status_check
+  print_head "Copy App file to"
+  mv target/${component}-1.0.jar ${component}.jar
+  status_check
 
-   SYSTEMD_SETUP
+  SYSTEMD_SETUP
 
-   LOAD_SCHEMA
+  LOAD_SCHEMA
 
 }
