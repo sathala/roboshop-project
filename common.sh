@@ -106,7 +106,7 @@ NODEJS() {
   npm install &>>${LOG}
   status_check
 
-  SYSTEMD-SETUP
+  SYSTEMD_SETUP
  
   LOAD_SCHEMA
 }
