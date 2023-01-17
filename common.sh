@@ -20,7 +20,7 @@ APP_PREREQ() {
   print_head "Add Application User"
   id roboshop &>>${LOG}
   if [ $? -ne 0 ]; then
-  useradd roboshop &>>${LOG}
+    useradd roboshop &>>${LOG}
   fi
   status_check
 
@@ -30,7 +30,7 @@ APP_PREREQ() {
   curl -L -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip &>>${LOG}
   status_check
 
-  print_head "Cleaning Old Content"
+  print_head "Cleanup Old Content"
   rm -rf /app/* &>>${LOG}
   status_check
 
@@ -46,15 +46,15 @@ SYSTEMD_SETUP() {
   cp ${script_location}/files/${component}.service /etc/systemd/system/${component}.service &>>${LOG}
   status_check
 
-  print_head "Reload systemD"
+  print_head "Reload SystemD"
   systemctl daemon-reload &>>${LOG}
   status_check
 
-  print_head "Enable ${component} service"
+  print_head "Enable ${component} service "
   systemctl enable ${component} &>>${LOG}
   status_check
 
-  print_head "Start ${component} service"
+  print_head "Start ${component} service "
   systemctl start ${component} &>>${LOG}
   status_check
 }
